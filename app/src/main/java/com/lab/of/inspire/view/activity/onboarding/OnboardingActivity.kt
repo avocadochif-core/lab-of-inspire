@@ -56,7 +56,7 @@ class OnboardingActivity : BaseActivity() {
     }
 
     private fun initOnboardingVP() {
-        binding.onboardingVP.init(adapter, callback)
+        binding.onboardingVP.init(adapter, binding.pageIndicator, callback)
     }
 
 }

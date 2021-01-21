@@ -10,6 +10,7 @@
 
     <!-- Custom colors -->
     <color name="grey">#595959</color>
+    <color name="grey_light">#DEDEDE</color>
 
     <!-- Opacity colors -->
 
