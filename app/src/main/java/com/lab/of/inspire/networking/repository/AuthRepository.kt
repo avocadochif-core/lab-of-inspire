@@ -1,10 +1,6 @@
 package com.lab.of.inspire.networking.repository
 
-import com.lab.of.inspire.networking.ApiClient
-import com.lab.of.inspire.networking.ApiRequest
-import com.lab.of.inspire.networking.Result
-import com.lab.of.inspire.networking.baseResponseHandler
-import com.lab.of.inspire.networking.safeApiCall
+import com.lab.of.inspire.networking.*
 
 object AuthRepository {
 

@@ -25,6 +25,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".view.activity.onboarding.OnboardingActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
