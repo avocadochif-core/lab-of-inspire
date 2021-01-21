@@ -6,8 +6,10 @@
     <color name="transparent">#00000000</color>
 
     <!-- General colors -->
+    <color name="main_violet">#9F5F80</color>
 
     <!-- Custom colors -->
+    <color name="grey">#595959</color>
 
     <!-- Opacity colors -->
 

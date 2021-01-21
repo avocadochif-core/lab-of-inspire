@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Lab of Inspire</string>
+
+    <!-- Onboarding Pages -->
+    <string name="onboarding_title_1">Photos for everyone</string>
+    <string name="onboarding_title_2">Photos for everyone</string>
+    <string name="onboarding_title_3">Photos for everyone</string>
+    <string name="onboarding_description_1">Over 2 million free high-resolution images brought to you by the world’s most generous community of photographers.</string>
+    <string name="onboarding_description_2">Over 2 million free high-resolution images brought to you by the world’s most generous community of photographers.</string>
+    <string name="onboarding_description_3">Over 2 million free high-resolution images brought to you by the world’s most generous community of photographers.</string>
+
+    <!-- OnboardingActivity -->
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_get_started">Get started</string>
+
 </resources>
