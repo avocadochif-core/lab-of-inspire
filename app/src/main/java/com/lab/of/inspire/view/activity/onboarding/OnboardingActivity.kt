@@ -10,11 +10,12 @@ import com.lab.of.inspire.databinding.ActivityOnboardingBinding
 import com.lab.of.inspire.extensions.bindData
 import com.lab.of.inspire.extensions.init
 import com.lab.of.inspire.extensions.obs
+import com.lab.of.inspire.extensions.openActivityWithFinish
 import com.lab.of.inspire.view.activity.base.BaseActivity
+import com.lab.of.inspire.view.activity.home.MainActivity
 import com.lab.of.inspire.view.viewpager.adapter.OnboardingAdapter
 import com.lab.of.inspire.view.viewpager.callbacks.PageChangedCallback
 import com.lab.of.inspire.viewmodel.onboarding.OnboardingViewModel
-import org.jetbrains.anko.toast
 
 class OnboardingActivity : BaseActivity() {
 
@@ -44,10 +45,9 @@ class OnboardingActivity : BaseActivity() {
     }
 
     private fun initObservers() {
-        viewModel.skipBtnClickedLD.obs(this) { toast("skip clicked") }
         viewModel.onboardingPagesLD.obs(this) { adapter.updateData(it) }
+        viewModel.navigateToMainFlowLD.obs(this) { openActivityWithFinish(MainActivity()) }
         viewModel.skipBtnInvisibilityLD.obs(this) { binding.skipTV.isInvisible = it }
-        viewModel.getStartedBtnClickedLD.obs(this) { toast("get started clicked") }
         viewModel.getStartedBtnInvisibilityLD.obs(this) { binding.getStartedBTN.isInvisible = it }
     }
 

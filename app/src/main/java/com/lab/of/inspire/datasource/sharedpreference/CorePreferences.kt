@@ -12,6 +12,7 @@ object CorePreferences {
     private const val CORE_PREFERENCES = "com.lab.of.inspire.core.preferences"
 
     private const val IS_USER_LOGGED = "is.user.logged"
+    private const val OPEN_FLOW_TYPE = "open.flow.type"
 
     private lateinit var preferences: SharedPreferences
 
@@ -23,11 +24,16 @@ object CorePreferences {
     fun clearData() {
         preferences.edit(true) {
             remove(IS_USER_LOGGED)
+            remove(OPEN_FLOW_TYPE)
         }
     }
 
     var isUserLogin
         get() = preferences.getBoolean(IS_USER_LOGGED, false)
         set(value) = preferences.edit().putBoolean(IS_USER_LOGGED, value).apply()
+
+    var openFlowType
+        get() = preferences.getString(OPEN_FLOW_TYPE, null)
+        set(value) = preferences.edit().putString(OPEN_FLOW_TYPE, value).apply()
 
 }
