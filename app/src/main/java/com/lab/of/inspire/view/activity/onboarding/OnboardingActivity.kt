@@ -1,13 +1,9 @@
 package com.lab.of.inspire.view.activity.onboarding
 
-import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.view.isInvisible
-import androidx.databinding.DataBindingUtil
-import com.lab.of.inspire.BR
 import com.lab.of.inspire.R
 import com.lab.of.inspire.databinding.ActivityOnboardingBinding
-import com.lab.of.inspire.extensions.bindData
 import com.lab.of.inspire.extensions.init
 import com.lab.of.inspire.extensions.obs
 import com.lab.of.inspire.extensions.openActivityWithFinish
@@ -17,42 +13,29 @@ import com.lab.of.inspire.view.viewpager.adapter.OnboardingAdapter
 import com.lab.of.inspire.view.viewpager.callbacks.PageChangedCallback
 import com.lab.of.inspire.viewmodel.onboarding.OnboardingViewModel
 
-class OnboardingActivity : BaseActivity() {
+class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
 
-    private val viewModel by viewModels<OnboardingViewModel>()
-    private lateinit var binding: ActivityOnboardingBinding
+    override val viewModel by viewModels<OnboardingViewModel>()
+    override val layoutResId: Int = R.layout.activity_onboarding
 
     private val adapter = OnboardingAdapter()
     private val callback = PageChangedCallback { viewModel.onPageChanged(it) }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_onboarding)
-        binding.bindData(BR.viewModel, viewModel)
-
-        initViews()
-        initObservers()
-        initListeners()
-    }
 
     override fun onDestroy() {
         super.onDestroy()
         binding.onboardingVP.unregisterOnPageChangeCallback(callback)
     }
 
-    private fun initViews() {
+    override fun initViews() {
+        super.initViews()
         initOnboardingVP()
     }
 
-    private fun initObservers() {
+    override fun initObservers() {
         viewModel.onboardingPagesLD.obs(this) { adapter.updateData(it) }
-        viewModel.navigateToMainFlowLD.obs(this) { openActivityWithFinish(MainActivity()) }
         viewModel.skipBtnInvisibilityLD.obs(this) { binding.skipTV.isInvisible = it }
+        viewModel.navigateToDefaultFlowLD.obs(this) { openActivityWithFinish(MainActivity()) }
         viewModel.getStartedBtnInvisibilityLD.obs(this) { binding.getStartedBTN.isInvisible = it }
-    }
-
-    private fun initListeners() {
-
     }
 
     private fun initOnboardingVP() {

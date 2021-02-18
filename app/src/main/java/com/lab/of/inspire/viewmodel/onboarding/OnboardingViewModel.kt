@@ -2,9 +2,7 @@ package com.lab.of.inspire.viewmodel.onboarding
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.lab.of.inspire.datasource.sharedpreference.CorePreferences
 import com.lab.of.inspire.enums.OnboardingPage
-import com.lab.of.inspire.enums.OpenFlowType
 import com.lab.of.inspire.extensions.execute
 import com.lab.of.inspire.viewmodel.base.BaseViewModel
 import com.lab.of.inspire.viewmodel.singleLiveEvent.SingleLiveEvent
@@ -24,8 +22,8 @@ class OnboardingViewModel : BaseViewModel() {
     private val _skipBtnInvisibilityLD = MutableLiveData<Boolean>()
     val skipBtnInvisibilityLD: LiveData<Boolean> get() = _skipBtnInvisibilityLD
 
-    private val _navigateToMainFlowLD = SingleLiveEvent<Unit>()
-    val navigateToMainFlowLD: LiveData<Unit> get() = _navigateToMainFlowLD
+    private val _navigateToDefaultFlowLD = SingleLiveEvent<Unit>()
+    val navigateToDefaultFlowLD: LiveData<Unit> get() = _navigateToDefaultFlowLD
 
     /////////////////////////////////////////////////////////
     /////////////////////// Variables ///////////////////////
@@ -53,8 +51,7 @@ class OnboardingViewModel : BaseViewModel() {
     }
 
     private fun navigateToNextFlow() {
-        CorePreferences.openFlowType = OpenFlowType.MAIN.name
-        _navigateToMainFlowLD.execute()
+        _navigateToDefaultFlowLD.execute()
     }
 
 }

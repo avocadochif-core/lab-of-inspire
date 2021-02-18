@@ -28,7 +28,7 @@ object CorePreferences {
         }
     }
 
-    var isUserLogin
+    var isUserLogged
         get() = preferences.getBoolean(IS_USER_LOGGED, false)
         set(value) = preferences.edit().putBoolean(IS_USER_LOGGED, value).apply()
 

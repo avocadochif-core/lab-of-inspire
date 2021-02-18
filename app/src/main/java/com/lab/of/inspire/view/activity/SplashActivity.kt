@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun initObservers() {
-        viewModel.openMainFlowLD.obs(this) { openActivityWithFinish(MainActivity()) }
+        viewModel.openDefaultFlowLD.obs(this) { openActivityWithFinish(MainActivity()) }
         viewModel.openOnboardingFlowLD.obs(this) { openActivityWithFinish(OnboardingActivity()) }
     }
 

@@ -8,11 +8,11 @@ enum class OpenFlowType {
     /**
      * Opens OnboardingActivity when application was opened first time
      */
-    DEFAULT,
+    ONBOARDING,
 
     /**
      * Opens MainActivity when user already watched onboarding
      */
-    MAIN
+    DEFAULT
 
 }

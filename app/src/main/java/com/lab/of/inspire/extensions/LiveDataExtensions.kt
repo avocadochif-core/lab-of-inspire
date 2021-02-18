@@ -9,6 +9,10 @@ fun MutableLiveData<Unit>.execute() {
     this.postValue(Unit)
 }
 
+fun MutableLiveData<Unit>.executeIf(condition: Boolean) {
+    if (condition) { this.postValue(Unit) }
+}
+
 /**
  * Short for of observer(owner, Observer { func })
  */
