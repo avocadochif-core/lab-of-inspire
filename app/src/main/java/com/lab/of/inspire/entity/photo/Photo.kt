@@ -3,6 +3,7 @@ package com.lab.of.inspire.entity.photo
 import com.google.gson.annotations.SerializedName
 import com.lab.of.inspire.entity.link.Links
 import com.lab.of.inspire.entity.url.Urls
+import com.lab.of.inspire.entity.user.User
 import com.lab.of.inspire.networking.consts.SerializedNames.ALT_DESCRIPTION
 import com.lab.of.inspire.networking.consts.SerializedNames.COLOR
 import com.lab.of.inspire.networking.consts.SerializedNames.CREATED_AT
@@ -13,6 +14,7 @@ import com.lab.of.inspire.networking.consts.SerializedNames.LIKED_BY_USER
 import com.lab.of.inspire.networking.consts.SerializedNames.LIKES
 import com.lab.of.inspire.networking.consts.SerializedNames.LINKS
 import com.lab.of.inspire.networking.consts.SerializedNames.URLS
+import com.lab.of.inspire.networking.consts.SerializedNames.USER
 import com.lab.of.inspire.networking.consts.SerializedNames.WIDTH
 
 data class Photo(
@@ -48,6 +50,9 @@ data class Photo(
     var likes: Int? = null,
 
     @SerializedName(LIKED_BY_USER)
-    var likedByUser: Boolean = false
+    var likedByUser: Boolean = false,
+
+    @SerializedName(USER)
+    var user: User? = null
 
 )

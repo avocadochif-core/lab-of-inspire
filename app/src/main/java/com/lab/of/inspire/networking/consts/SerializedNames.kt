@@ -22,5 +22,13 @@ object SerializedNames {
     const val DOWNLOAD_LOCATION = "download_location"
     const val LIKES = "likes"
     const val LIKED_BY_USER = "liked_by_user"
+    const val USER = "user"
+    const val USERNAME = "username"
+    const val NAME = "name"
+    const val FIRST_NAME = "first_name"
+    const val LAST_NAME = "last_name"
+    const val PROFILE_IMAGE = "profile_image"
+    const val MEDIUM = "medium"
+    const val LARGE = "large"
 
 }
