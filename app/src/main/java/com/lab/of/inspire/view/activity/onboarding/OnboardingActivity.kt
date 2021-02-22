@@ -1,12 +1,11 @@
 package com.lab.of.inspire.view.activity.onboarding
 
 import androidx.activity.viewModels
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isInvisible
 import com.lab.of.inspire.R
 import com.lab.of.inspire.databinding.ActivityOnboardingBinding
-import com.lab.of.inspire.extensions.init
-import com.lab.of.inspire.extensions.obs
-import com.lab.of.inspire.extensions.openActivityWithFinish
+import com.lab.of.inspire.extensions.*
 import com.lab.of.inspire.view.activity.base.BaseActivity
 import com.lab.of.inspire.view.activity.home.MainActivity
 import com.lab.of.inspire.view.viewpager.adapter.OnboardingAdapter
@@ -28,6 +27,7 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
 
     override fun initViews() {
         super.initViews()
+        initInsets()
         initOnboardingVP()
     }
 
@@ -36,6 +36,14 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
         viewModel.skipBtnInvisibilityLD.obs(this) { binding.skipTV.isInvisible = it }
         viewModel.navigateToDefaultFlowLD.obs(this) { openActivityWithFinish(MainActivity()) }
         viewModel.getStartedBtnInvisibilityLD.obs(this) { binding.getStartedBTN.isInvisible = it }
+    }
+
+    private fun initInsets() {
+        windowLightStatusBar = true
+        setWindowTransparency { statusBarSize, navigationBarSize ->
+            binding.skipTV.setMargins<ConstraintLayout.LayoutParams>(top = statusBarSize)
+            binding.getStartedBTN.setMargins<ConstraintLayout.LayoutParams>(bottom = navigationBarSize)
+        }
     }
 
     private fun initOnboardingVP() {
