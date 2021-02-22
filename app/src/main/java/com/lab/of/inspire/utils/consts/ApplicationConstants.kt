@@ -16,4 +16,6 @@ object ApplicationConstants {
 
     ////////////////////////////////// Other ////////////////////////////////////////
 
+    const val CROSS_FADE_DURATION = 350
+
 }

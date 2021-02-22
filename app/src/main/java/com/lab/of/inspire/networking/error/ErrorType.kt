@@ -3,6 +3,7 @@ package com.lab.of.inspire.networking.error
 enum class ErrorType {
 
     VALIDATION_ERROR,
+    BAD_REQUEST,
     SERVER_ERROR,
     NOT_FOUND,
     AUTHORIZATION,

@@ -5,10 +5,14 @@ import retrofit2.Response
 
 object HttpErrorChecker {
 
+    /**
+     * For more details about ErrorResponse model
+     * @see https://unsplash.com/documentation#error-messages
+     */
     fun <T>checkError(response: Response<T>): ApiError {
         return try {
             val error = JSONObject(response.errorBody()!!.string())
-            ApiError(error.getString("message"), ErrorType.UNSPECIFIED)
+            ApiError(error.getJSONArray("errors")[0] as String, ErrorType.UNSPECIFIED)
         } catch (e: Exception) {
             e.printStackTrace()
             getErrorBasedOnResponseCode(response.code())
@@ -17,6 +21,7 @@ object HttpErrorChecker {
 
     private fun getErrorBasedOnResponseCode(code: Int): ApiError {
         return when(code) {
+            400 -> ApiError("The request was unacceptable, often due to missing a required parameter", ErrorType.BAD_REQUEST)
             401 -> ApiError("User is not authorized to do this action", ErrorType.AUTHORIZATION)
             403 -> ApiError("The requested operation is forbidden and cannot be completed", ErrorType.AUTHORIZATION)
             404 -> ApiError("The requested operation failed because a resource associated with the request could not be found", ErrorType.NOT_FOUND)
